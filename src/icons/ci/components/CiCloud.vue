@@ -1,0 +1,58 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'CiCloud',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 24 24'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <rect id="Cloud" x="0" y="0" width="24" height="24" style="fill:none;"/>
+    <g id="Cloud1" serif:id="Cloud">
+        <path d="M16.588,10.046c0.215,-0.032 0.434,-0.048 0.66,-0.048c2.7,-0 4.871,2.278 4.692,5.016c-0.163,2.494 -2.338,4.389 -4.838,4.389l-7.456,-0c-3.982,-0 -7.402,-3.069 -7.588,-7.047c-0.199,-4.251 3.188,-7.758 7.395,-7.758c3.415,-0 6.286,2.309 7.135,5.448Zm-13.531,2.263c0.162,3.448 3.138,6.094 6.589,6.094l7.456,-0c1.977,-0 3.712,-1.482 3.841,-3.454c0.141,-2.156 -1.568,-3.951 -3.695,-3.951c-0.279,-0 -0.546,0.032 -0.806,0.091l-0.001,0.001c-0.343,0.076 -0.666,-0.128 -0.742,-0.471l-0.001,-0.003c-0.625,-2.871 -3.182,-5.018 -6.245,-5.018c-3.64,-0 -6.569,3.034 -6.396,6.711Z"/>
+    </g>
+      </BaseIcon>
+    </template>

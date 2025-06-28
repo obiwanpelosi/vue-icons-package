@@ -1,0 +1,58 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'CiCloudRainbow',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 24 24'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <rect id="Cloud-Rainbow" serif:id="Cloud Rainbow" x="0" y="0" width="24" height="24" style="fill:none;"/>
+    <g id="Cloud-Rainbow1" serif:id="Cloud Rainbow">
+        <path d="M13.845,10.956c0.149,0.31 0.272,0.635 0.368,0.971c0.157,-0.019 0.317,-0.029 0.481,-0.029c2.278,-0 4.11,1.922 3.959,4.232c-0.138,2.104 -1.971,3.703 -4.079,3.703l-6.153,-0c-3.332,-0 -6.193,-2.569 -6.349,-5.898c-0.168,-3.558 2.667,-6.493 6.188,-6.493c0.254,-0 0.505,0.015 0.751,0.045c0.213,-0.286 0.451,-0.557 0.715,-0.82c3.325,-3.336 8.732,-3.336 12.067,-0.001c0.196,0.196 0.196,0.512 0,0.708c-0.195,0.195 -0.512,0.195 -0.707,-0c-2.944,-2.945 -7.717,-2.945 -10.652,-0.001c-0.115,0.115 -0.223,0.23 -0.327,0.348c0.501,0.156 0.974,0.374 1.411,0.645c2.369,-2.314 6.178,-2.297 8.525,0.05c0.196,0.196 0.196,0.512 0,0.708c-0.195,0.195 -0.512,0.195 -0.707,-0c-1.922,-1.923 -5.016,-1.974 -7.001,-0.155c0.371,0.325 0.702,0.692 0.987,1.096c1.412,-1.303 3.6,-1.27 4.971,0.101c0.196,0.196 0.196,0.512 0,0.708c-0.195,0.195 -0.512,0.195 -0.707,-0c-1.014,-1.015 -2.648,-1.015 -3.663,-0c-0.026,0.026 -0.053,0.054 -0.078,0.082Zm-10.774,2.932c0.131,2.799 2.549,4.945 5.35,4.945l6.153,-0c1.585,-0 2.977,-1.186 3.081,-2.768c0.113,-1.728 -1.257,-3.167 -2.961,-3.167c-0.224,-0 -0.437,0.025 -0.644,0.073c-0.002,0 -0.005,0.001 -0.007,0.002c-0.334,0.071 -0.642,-0.128 -0.713,-0.46c-0.508,-2.329 -2.584,-4.071 -5.07,-4.071c-2.953,-0 -5.33,2.462 -5.189,5.446Z"/>
+    </g>
+      </BaseIcon>
+    </template>

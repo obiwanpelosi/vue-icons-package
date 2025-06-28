@@ -1,0 +1,71 @@
+{
+  "name": "vue-icons-lib",
+  "type": "module",
+  "version": "2.0.2",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src/metadata"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm run generate:entry && vite build",
+    "build:only": "vite build",
+    "generate:entry": "node --loader ts-node/esm src/scripts/generateEntryPoints.ts",
+    "build:types": "node --loader ts-node/esm scripts/generateTypes.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:ant": "node --loader ts-node/esm src/icons/ai/scripts/generateIcons.ts",
+    "generate:bootstrap": "node --loader ts-node/esm src/icons/bs/scripts/generateIcons.ts",
+    "generate:box": "node --loader ts-node/esm src/icons/bx/scripts/generateIcon.ts",
+    "rename-box-icons": "node --loader ts-node/esm src/icons/bx/scripts/renameIcons.ts",
+    "generate:circum": "node --loader ts-node/esm src/icons/ci/scripts/generateIcons.ts",
+    "generate:css-gg": "node --loader ts-node/esm src/icons/cg/scripts/generateIcons.ts",
+    "generate:dev": "node --loader ts-node/esm src/icons/di/scripts/generateIcons.ts",
+    "generate:feather": "node --loader ts-node/esm src/icons/fi/scripts/generateIcons.ts",
+    "generate:all": "npm run generate:ant && npm run generate:box && npm run generate:circum && npm run generate:css-gg && npm run generate:dev && npm run generate:feather"
+  },
+  "exports": {
+    "./ai": {
+      "import": "./dist/ai/index.js",
+      "types": "./dist/types/ai/index.d.ts"
+    },
+    "./bx": {
+      "import": "./dist/bx/index.js",
+      "types": "./dist/types/bx/index.d.ts"
+    },
+    "./cg": {
+      "import": "./dist/cg/index.js",
+      "types": "./dist/types/cg/index.d.ts"
+    },
+    "./ci": {
+      "import": "./dist/ci/index.js",
+      "types": "./dist/types/ci/index.d.ts"
+    },
+    "./di": {
+      "import": "./dist/di/index.js",
+      "types": "./dist/types/di/index.d.ts"
+    },
+    "./fi": {
+      "import": "./dist/fi/index.js",
+      "types": "./dist/types/fi/index.d.ts"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.46",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^2.2.10"
+  }
+}
