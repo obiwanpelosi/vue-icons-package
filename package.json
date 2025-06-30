@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run generate:entry && vite build",
+    "build": "pnpm run generate:entry && vite build && pnpm run build:types",
     "build:only": "vite build",
     "generate:entry": "node --loader ts-node/esm src/scripts/generateEntryPoints.ts",
     "build:types": "node --loader ts-node/esm scripts/generateTypes.js",
@@ -28,6 +28,10 @@
     "generate:all": "npm run generate:ant && npm run generate:box && npm run generate:circum && npm run generate:css-gg && npm run generate:dev && npm run generate:feather"
   },
   "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
     "./ai": {
       "import": "./dist/ai/index.js",
       "types": "./dist/types/ai/index.d.ts"

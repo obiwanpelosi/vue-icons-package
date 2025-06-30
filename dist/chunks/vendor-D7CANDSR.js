@@ -6,6 +6,7 @@ import {
   normalizeClass as p,
   renderSlot as c,
 } from "vue";
+
 const m = i({
     name: "BaseIcon",
     props: {

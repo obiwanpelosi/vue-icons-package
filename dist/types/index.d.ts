@@ -1,5 +1,5 @@
 // Main entry point
-export { BaseIcon } from './BaseIcon.js';
+export { default as BaseIcon } from './BaseIcon.js';
 
 // Icon group exports
 export * from './ai/index.js';
