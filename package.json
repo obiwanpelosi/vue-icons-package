@@ -1,18 +1,17 @@
 {
   "name": "vue-icons-lib",
   "type": "module",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist",
-    "src/metadata"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run generate:entry && vite build && pnpm run build:types",
+    "build": "pnpm run generate:entry && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build && pnpm run build:types",
     "build:only": "vite build",
     "generate:entry": "node --loader ts-node/esm src/scripts/generateEntryPoints.ts",
     "build:types": "node --loader ts-node/esm scripts/generateTypes.js",
@@ -25,6 +24,8 @@
     "generate:css-gg": "node --loader ts-node/esm src/icons/cg/scripts/generateIcons.ts",
     "generate:dev": "node --loader ts-node/esm src/icons/di/scripts/generateIcons.ts",
     "generate:feather": "node --loader ts-node/esm src/icons/fi/scripts/generateIcons.ts",
+    "generate:flat-color": "node --loader ts-node/esm src/icons/fc/scripts/generateIcons.ts",
+    "generate:fa7": "node --loader ts-node/esm src/icons/fa7/scripts/generateIcons.ts",
     "generate:all": "npm run generate:ant && npm run generate:box && npm run generate:circum && npm run generate:css-gg && npm run generate:dev && npm run generate:feather"
   },
   "exports": {
@@ -55,12 +56,21 @@
     "./fi": {
       "import": "./dist/fi/index.js",
       "types": "./dist/types/fi/index.d.ts"
+    },
+    "./fc": {
+      "import": "./dist/fc/index.js",
+      "types": "./dist/types/fc/index.d.ts"
+    },
+    "./fa7": {
+      "import": "./dist/fa7/index.js",
+      "types": "./dist/types/fa7/index.d.ts"
     }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^10.1.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
