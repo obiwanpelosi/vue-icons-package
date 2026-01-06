@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7SolidDove',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 512 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M496 64c13.2 0 20.7 15.1 12.8 25.6L480 128 480 304c0 79.5-64.5 144-144 144l-112 0-46.3 46.3c-10.4 10.4-26.5 12.4-39.1 4.8L41.5 440.9c-17-10.2-15-35.5 3.4-42.9L160 352C23.8 311.1 7.5 169.8 22 95.7 25.6 77.9 45.3 71.4 61.3 80.2L320 224 320 144c0-44.2 35.8-80 80-80l96 0zm-96 56a24 24 0 1 0 0 48 24 24 0 1 0 0-48zM182.5-9.6c12.4-13.7 33.3-8.9 42.5 7.1l56.4 98.3c-5.8 14.4-9.2 30.1-9.4 46.5L138.1 68c10.1-31.6 27-58.4 44.4-77.6z"/>
+      </BaseIcon>
+    </template>

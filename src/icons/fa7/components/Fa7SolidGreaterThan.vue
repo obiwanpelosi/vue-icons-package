@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7SolidGreaterThan',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 512 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M34.9 50.6c-7.4 16-.4 35.1 15.6 42.5L403.6 256 50.6 419c-16 7.4-23.1 26.4-15.6 42.5s26.4 23 42.5 15.6l416-192c11.3-5.2 18.6-16.6 18.6-29.1s-7.3-23.8-18.6-29.1L77.4 35c-16-7.4-35.1-.4-42.5 15.6z"/>
+      </BaseIcon>
+    </template>

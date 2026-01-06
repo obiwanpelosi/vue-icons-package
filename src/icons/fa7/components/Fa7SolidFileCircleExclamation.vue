@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7SolidFileCircleExclamation',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 576 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M96 0C60.7 0 32 28.7 32 64l0 384c0 35.3 28.7 64 64 64l180 0c-22.7-31.5-36-70.2-36-112 0-100.6 77.4-183.2 176-191.3l0-38.1c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0L96 0zM357.5 176L264 176c-13.3 0-24-10.7-24-24L240 58.5 357.5 176zM432 544a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm0-100a20 20 0 1 1 0 40 20 20 0 1 1 0-40zm0-140c8.8 0 16 7.2 16 16l0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80c0-8.8 7.2-16 16-16z"/>
+      </BaseIcon>
+    </template>

@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7SolidInfinity',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 640 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M0 256c0-88.4 71.6-160 160-160 50.4 0 97.8 23.7 128 64l32 42.7 32-42.7c30.2-40.3 77.6-64 128-64 88.4 0 160 71.6 160 160S568.4 416 480 416c-50.4 0-97.8-23.7-128-64l-32-42.7-32 42.7c-30.2 40.3-77.6 64-128 64-88.4 0-160-71.6-160-160zm280 0l-43.2-57.6c-18.1-24.2-46.6-38.4-76.8-38.4-53 0-96 43-96 96s43 96 96 96c30.2 0 58.7-14.2 76.8-38.4L280 256zm80 0l43.2 57.6c18.1 24.2 46.6 38.4 76.8 38.4 53 0 96-43 96-96s-43-96-96-96c-30.2 0-58.7 14.2-76.8 38.4L360 256z"/>
+      </BaseIcon>
+    </template>

@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7SolidMugHot',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 576 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M152-16c-13.3 0-24 10.7-24 24 0 38.9 23.4 59.4 39.1 73.1l1.1 1c16.3 14.3 23.8 21.8 23.8 37.9 0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C183.5 31.7 176 24.1 176 8 176-5.3 165.3-16 152-16zM96 192c-17.7 0-32 14.3-32 32l0 192c0 53 43 96 96 96l192 0c41.8 0 77.4-26.7 90.5-64l5.5 0c70.7 0 128-57.3 128-128S518.7 192 448 192L96 192zM448 384l0-128c35.3 0 64 28.7 64 64s-28.7 64-64 64zM288 8c0-13.3-10.7-24-24-24S240-5.3 240 8c0 38.9 23.4 59.4 39.1 73.1l1.1 1c16.3 14.3 23.8 21.8 23.8 37.9 0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C295.5 31.7 288 24.1 288 8z"/>
+      </BaseIcon>
+    </template>

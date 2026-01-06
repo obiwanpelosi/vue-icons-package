@@ -23,26 +23,6 @@ const __dirname = dirname(__filename);
 const cssGgIconsDir = join(__dirname, "..");
 const svgDir = join(cssGgIconsDir, "icons");
 const outputDir = join(cssGgIconsDir, "components");
-const metadataPath = join(__dirname, "../../../metadata/icons.json");
-
-// Read existing metadata
-let iconMetadata = [];
-if (existsSync(metadataPath)) {
-  const metadataContent = readFileSync(metadataPath, "utf-8");
-  iconMetadata = JSON.parse(metadataContent);
-}
-
-// Function to add metadata entry
-function addIconMetadata(componentName: string) {
-  const componentPath = `./icons/css-gg-icons/components/${componentName}.vue`;
-  const metadata = {
-    name: componentName,
-    group: "css-gg-icons",
-    groupShortName: "cg",
-    componentPath: componentPath,
-  };
-  iconMetadata.push(metadata);
-}
 
 // Ensure output directory exists
 if (!existsSync(outputDir)) {
@@ -148,8 +128,6 @@ function generateComponents(svgDir: string, lib: string) {
     </template>`;
 
     writeFileSync(join(outputDir, `${componentFullName}.vue`), vueContent);
-    // Add metadata entry for this component
-    addIconMetadata(componentFullName);
   });
 
   return svgFiles;
@@ -171,5 +149,3 @@ const indexContent = [
 ].join("\n");
 
 writeFileSync(join(cssGgIconsDir, "index.ts"), indexContent);
-// Write updated metadata
-writeFileSync(metadataPath, JSON.stringify(iconMetadata, null, 2));

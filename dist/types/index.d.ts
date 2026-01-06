@@ -8,4 +8,6 @@ export * from './bx/index.js';
 export * from './cg/index.js';
 export * from './ci/index.js';
 export * from './di/index.js';
+export * from './fa7/index.js';
+export * from './fc/index.js';
 export * from './fi/index.js';

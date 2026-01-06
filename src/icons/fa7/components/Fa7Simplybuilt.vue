@@ -1,0 +1,55 @@
+<script lang="ts">
+    import { defineComponent, PropType } from 'vue'
+    import BaseIcon from '../../../BaseIcon.vue'
+    
+    export default defineComponent({
+      name: 'Fa7Simplybuilt',
+      components: {
+        BaseIcon,
+      },
+      props: {
+        size: {
+          type: String,
+          default: '1em'
+        },
+        color: {
+          type: String,
+          default: 'currentColor'
+        },
+        strokeColor: {
+          type: String,
+          default: "",
+        },
+        class: {
+          type: String,
+          default: ''
+        },
+        style: {
+          type: Object as PropType<Record<string, string | number>>,
+          default: () => ({})
+        },
+        viewBox: {
+          type: String,
+          default: '0 0 512 512'
+        }
+      },
+      computed: {
+        cssClass() {
+          return this.class ? this.class : "";
+        },
+      },
+    })
+    </script>
+    
+    <template>
+      <BaseIcon 
+        :size="size"
+        :color="color"
+        :strokeColor="strokeColor"
+        :class="cssClass"
+        :style="style" 
+        :viewBox="viewBox"
+      >
+        <path fill="currentColor" d="M481.6 64l-106 0C361.1 64 349 75.8 349 90.3l0 39.6-185.3 0 0-39.6c0-14.5-12-26.3-26.6-26.3l-106 0C16.5 64 4.7 75.8 4.7 90.3l0 331.4c0 14.5 11.8 26.3 26.6 26.3l450.4 0c14.8 0 26.6-11.8 26.6-26.3l0-331.4c-.2-14.5-12-26.3-26.7-26.3zM150.5 222.7a66.5 66.5 0 1 1 -.3 133.1 66.5 66.5 0 1 1 .3-133.1zm211.9 .1a66.5 66.5 0 1 1 .3 132.9 66.5 66.5 0 1 1 -.3-132.9z"/>
+      </BaseIcon>
+    </template>
